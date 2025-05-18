@@ -198,7 +198,13 @@ remove_percentage = st.slider("Percentage of Data to Remove", min_value=0.1, max
 
 # Load data
 save_path = 'SignalSegments/Signal03.npz'
-data = np.load(save_path)
+@st.cache_data
+def load_data():
+    data = np.load(save_path)
+    return {key: data[key] for key in data.files}  
+
+data = load_data()
+
 temperature_array = data["filtered"]
 temperature_array = temperature_array[500:600]
 Time = np.arange(0, len(temperature_array))
