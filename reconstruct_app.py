@@ -197,7 +197,7 @@ st.title("Signal Reconstruction Demo")
 remove_percentage = st.slider("Percentage of Data to Remove", min_value=0.1, max_value=0.7, step=0.1)
 
 # Load data
-save_path = 'SignalSegments\Signal03.npz'
+save_path = 'SignalSegments/Signal03.npz'
 data = np.load(save_path)
 temperature_array = data["filtered"]
 temperature_array = temperature_array[500:600]
